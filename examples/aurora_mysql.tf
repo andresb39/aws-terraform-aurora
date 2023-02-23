@@ -16,13 +16,13 @@ data "aws_kms_secrets" "rds_credentials" {
 }
 
 module "vpc" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-vpc_basenetwork//?ref=v0.0.1"
+  source = "github.com/rackspace-infrastructure-automation/aws-terraform-vpc_basenetwork//?ref=v0.0.1"
 
   vpc_name = "Test1VPC"
 }
 
 module "vpc_dr" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-vpc_basenetwork//?ref=v0.0.1"
+  source = "github.com/rackspace-infrastructure-automation/aws-terraform-vpc_basenetwork//?ref=v0.0.1"
 
   providers = {
     aws = "aws.oregon"
@@ -32,7 +32,7 @@ module "vpc_dr" {
 }
 
 module "aurora_mysql_master" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-aurora//?ref=v0.0.7"
+  source = "github.com/rackspace-infrastructure-automation/aws-terraform-aurora//?ref=v0.0.7"
 
   ##################
   # Required Configuration
@@ -128,7 +128,7 @@ data "aws_kms_alias" "rds_crr" {
 }
 
 module "aurora_mysql_replica" {
-  source = "git@github.com:rackspace-infrastructure-automation/aws-terraform-aurora//?ref=v0.0.7"
+  source = "github.com/rackspace-infrastructure-automation/aws-terraform-aurora//?ref=v0.0.7"
 
   providers = {
     aws = "aws.oregon"
